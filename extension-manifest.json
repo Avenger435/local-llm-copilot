@@ -1,0 +1,95 @@
+{
+    "name": "local-llm-copilot",
+    "displayName": "Local LLM Copilot",
+    "description": "AI-powered code completion using local LLM models",
+    "version": "1.0.0",
+    "publisher": "local-llm-copilot",
+    "engines": {
+      "vscode": "^1.74.0"
+    },
+    "categories": [
+      "Machine Learning",
+      "Snippets",
+      "Other"
+    ],
+    "keywords": [
+      "ai",
+      "copilot",
+      "llm",
+      "local",
+      "code completion",
+      "ollama",
+      "lm studio"
+    ],
+    "activationEvents": [
+      "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+      "commands": [
+        {
+          "command": "localLlmCopilot.enable",
+          "title": "Enable",
+          "category": "Local LLM Copilot"
+        },
+        {
+          "command": "localLlmCopilot.disable",
+          "title": "Disable",
+          "category": "Local LLM Copilot"
+        },
+        {
+          "command": "localLlmCopilot.testConnection",
+          "title": "Test Connection",
+          "category": "Local LLM Copilot"
+        }
+      ],
+      "configuration": {
+        "title": "Local LLM Copilot",
+        "properties": {
+          "localLlmCopilot.enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable/disable Local LLM Copilot"
+          },
+          "localLlmCopilot.apiUrl": {
+            "type": "string",
+            "default": "http://localhost:11434",
+            "description": "URL of your local LLM API server"
+          },
+          "localLlmCopilot.model": {
+            "type": "string",
+            "default": "codellama:7b",
+            "description": "Model name to use for completions"
+          },
+          "localLlmCopilot.maxTokens": {
+            "type": "number",
+            "default": 100,
+            "minimum": 10,
+            "maximum": 1000,
+            "description": "Maximum number of tokens to generate"
+          },
+          "localLlmCopilot.temperature": {
+            "type": "number",
+            "default": 0.2,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "Temperature for text generation (0.0 = deterministic, 1.0 = creative)"
+          },
+          "localLlmCopilot.contextLines": {
+            "type": "number",
+            "default": 50,
+            "minimum": 5,
+            "maximum": 200,
+            "description": "Number of lines before cursor to include as context"
+          },
+          "localLlmCopilot.debounceMs": {
+            "type": "number",
+            "default": 300,
+            "minimum": 100,
+            "maximum": 2000,
+            "description": "Delay in milliseconds before triggering completion"
+          }
+        }
+      }
+    }
+  }
