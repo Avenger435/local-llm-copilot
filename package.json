@@ -3,7 +3,7 @@
     "displayName": "Local LLM Copilot",
     "description": "AI-powered code completion using local LLM models",
     "version": "1.0.0",
-    "publisher": "local-llm-copilot",
+    "publisher": "devbanukotte",
     "icon": "./images/icon.jpg",
     "engines": {
         "vscode": "^1.99.3"
@@ -91,16 +91,40 @@
                     "description": "Delay in milliseconds before triggering completion"
                 }
             }
+        },
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "localLLMCopilot",
+                    "title": "Local LLM Copilot",
+                    "icon": "images/llama.png"
+                }
+            ]
+        },
+        "views": {
+            "localLLMCopilot": [
+                {
+                    "type": "webview",
+                    "id": "localLLMCopilotView",
+                    "name": "Copilot Panel"
+                }
+            ]
         }
     },
     "dependencies": {
         "@vscode/vsce": "^3.5.0",
         "axios": "^1.10.0",
-        "types": "^0.1.1"
+        "types": "^0.1.1",
+        "typescript": "^5.8.3"
     },
     "devDependencies": {
         "@types/mocha": "^10.0.10",
         "@types/node": "^24.0.3",
         "@types/vscode": "^1.99.3"
+    },
+    "scripts": {
+        "compile": "tsc",
+        "watch": "tsc -w",
+        "package": "vsce package"
     }
 }
