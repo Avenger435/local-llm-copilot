@@ -4,6 +4,10 @@
     "description": "AI-powered code completion using local LLM models",
     "version": "1.0.0",
     "publisher": "devbanukotte",
+    "repository": {
+            "type": "git",
+            "url": "https://github.com/Avenger435/local-llm-copilot.git"
+        },
     "icon": "./images/icon.jpg",
     "engines": {
         "vscode": "^1.99.3"
@@ -126,5 +130,6 @@
         "compile": "tsc",
         "watch": "tsc -w",
         "package": "vsce package"
-    }
+    },
+    "license": "MIT"
 }
